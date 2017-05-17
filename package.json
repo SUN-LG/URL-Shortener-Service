@@ -1,0 +1,30 @@
+{
+  "name": "url-shortener-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SUN-LG/URL-Shortener-Service.git"
+  },
+  "keywords": [
+    "node",
+    "experss",
+    "url-shortener"
+  ],
+  "author": "sun-lg",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SUN-LG/URL-Shortener-Service/issues"
+  },
+  "homepage": "https://github.com/SUN-LG/URL-Shortener-Service#readme",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "express": "^4.15.2",
+    "mongoose": "^4.9.9"
+  }
+}
