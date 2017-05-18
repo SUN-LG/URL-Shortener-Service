@@ -12,7 +12,10 @@ router.get(/(https?|ftp|file):\/\/[A-Za-z0-9-+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%
     })
     .exec((err, urlShortener) => {
       if (err) throw err
-      if (urlShortener) return res.json(urlShortener)
+      if (urlShortener) return res.json({
+        original_url: urlShortener.original_url,
+        short_url: process.env.WEBURL + urlShortener.short_url
+      })
       UrlShortener.create({
         original_url: originalUrl
       }, (err, urlShortener) => {
