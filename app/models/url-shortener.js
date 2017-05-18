@@ -17,7 +17,7 @@ UrlShortenerSchema.pre('save', function (next) {
       if (err) return next(err)
       doc.created_at = new Date()
       doc._id = counter.seq
-      doc.short_url = process.env.WEBHOST + convert2Base64(+counter.seq)
+      doc.short_url = convert2Base64(+counter.seq)
       next()
     })
 })

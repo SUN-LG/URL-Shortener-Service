@@ -24,7 +24,7 @@ app.use((err, req, res, next) => {
   console.log(err)
   res.status(500).send('Inertnal Error')
 })
-const port = process.env._PORT || 8080
+const port = process.env.PORT || 8080
 app.listen(port, function () {
   console.log('server listening on port:' + port)
 })

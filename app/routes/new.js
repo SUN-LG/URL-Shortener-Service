@@ -17,13 +17,16 @@ router.get(/(https?|ftp|file):\/\/[A-Za-z0-9-+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%
         original_url: originalUrl
       }, (err, urlShortener) => {
         if (err) throw err
-        res.json(urlShortener)
+        res.json({
+          original_url: urlShortener.original_url,
+          short_url: process.env.WEBURL + urlShortener.short_url
+        })
       })
     })
 })
 
 router.get('/*', (req, res) => {
-  if (req.query.allow !== 'true') res.json({
+  if (req.query.allow !== 'true') return res.json({
     error: 'URL invalid'
   })
   const originalUrl = req.path.slice(1)
@@ -33,7 +36,7 @@ router.get('/*', (req, res) => {
       const id = counter.seq + 1
       res.json({
         original_url: 'invalid',
-        short_url: process.env.WEBHOST + '---------' + convert2Base64(id)
+        short_url: process.env.WEBURL + '---------' + convert2Base64(id)
       })
     })
 })
